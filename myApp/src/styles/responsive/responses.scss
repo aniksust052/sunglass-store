@@ -1,0 +1,231 @@
+@use '../All.scss';
+@use '../display.scss';
+
+@media(max-width: 1400px){
+    .mx-w{
+        max-width: 1070px;
+    }
+    .herSection{
+        .hero{
+            padding: 190px 0px;
+        }
+    }
+}
+@media(max-width: 1200px){
+    .mx-w{
+        max-width: 890px;
+    }
+    .herSection{
+        .hero{
+            padding: 180px 0px;
+            .contents{
+                gap: 20px;
+                .title{
+                    max-width: 520px;
+                    font-size: 65px;
+                }
+            }    
+        }
+    }
+    .offer-collection{
+        max-width: 580px;
+        grid-template: repeat(4,1fr)/repeat(1,1fr);
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+    .logos{
+        .logo{
+            grid-template: repeat(2, 1fr)/repeat(3,1fr);
+            img{
+                margin: 0px auto;
+            }
+        }
+    }
+    .top-rated{
+        .content{
+            grid-template: 4fr/2fr repeat(4, 1fr)/repeat(2, 1fr);
+            .sale{
+                .discount-info{
+                    margin-top: 110%;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 992px){
+    .mx-w{
+        max-width: 720px;
+    }
+    .navDisp{
+        justify-content: center;
+    }
+    .herSection{
+        .hero{
+            padding: 110px 0px; 
+        }
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .happy-customers{
+        .customers{
+            .customer{
+                margin: auto;
+            }
+        }
+    }
+    .top-rated{
+        .content{
+            grid-template: repeat(8, 1fr)/repeat(1, 1fr);
+            .sale{
+                grid-area: span 4;
+                margin: auto;
+                height: 570px;
+                border-radius: 8px;
+                .discount-info{
+                    margin-top: 90%;
+                    .onwhich, .txt{
+                        font-size: 16px;
+                    }
+                    .percent{
+                        font-size: 45px;
+                    }
+                }
+            }
+            .glasss{
+                margin: auto;
+                width: 350px;
+            }
+        }
+    }
+}
+@media(max-width: 768px){
+    .mx-w{
+        max-width: 560px;
+    }
+    .herSection{
+        .hero{
+            padding: 80px 0px;
+            .contents{
+                gap: 8px;
+                .subTitle{
+                    font-size: 12px;
+                }
+                .title{
+                    max-width: 200px;
+                    font-size: 33px;
+                    line-height: 50px;
+                }
+                a{
+                    max-width: 150px;
+                    margin-top: 10px;
+                    padding: 10px 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .offer-collection{
+        grid-template: repeat(4,1fr)/repeat(1,1fr);
+        gap: 30px;
+        .baby{
+            .content{
+                .title{
+                   margin-left: 75px;
+                   a{
+                        padding: 15px 30px;
+                        @include display.borderFix(80px, 297px, 12px, #FFFFFF );
+                        font-size: 20px;
+                   }
+                }
+            }
+            
+        }
+        .ladies-gents{
+            .content{
+                gap: 15px;
+                .offerTime{
+                    @include display.borderFix(30px, 100px, 0px, transparent );
+                    @include All.typo(#FFFFFF, 18px, 700);
+                }
+                .title{
+                    padding: 7px 20px;
+                    margin-top: 20px;
+                    @include display.borderFix(40px, 192px, 5px, #FFFFFF );
+                    @include All.typo(#452228, 19px, 700);
+                 }
+            }
+        }
+    }
+    .img570w{
+        width: 350px;
+    }
+    .discount{
+        @include display.borderFix(26px, 70px, 5px, #FD9B28 );
+        font-size: 12px;
+        padding: 5px 0px;
+    }
+    .margin-top-left{
+        margin-top: 14px;
+        margin-left: 14px;
+    }
+}
+
+@media(max-width: 590px){
+    .mx-w{
+        max-width: 355px;
+    }
+    .herSection{
+        .hero{
+            padding: 40px 0px;
+        }
+    }
+    .img552hgt280{
+        max-width: 350px;
+    }
+    .head-line{
+        .title{
+            font-size: 35px;
+        }
+    }
+    .navDisp{
+        .menuBar{
+            justify-content: center;
+        }
+    }
+    .collections{
+        .collectionTitles{
+            gap: 16px;
+            margin: 25px auto auto 185px;
+            .subTitle{
+                @include All.typo(#FFFFFFB2, 14px , 600 );
+            }
+            .title{
+                @include All.typo(#FFFFFF, 20px , 700 );
+            }
+        }
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .happy-customers{
+        .customers{
+            .customer{
+                max-width: 350px;
+                padding: 25px;
+            }
+        }
+    }
+    .logos{
+        .logo{
+            grid-template: repeat(3, 1fr)/repeat(2,1fr);
+        }
+    }
+}

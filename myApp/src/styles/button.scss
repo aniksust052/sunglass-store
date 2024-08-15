@@ -1,0 +1,26 @@
+@use 'variables';
+
+
+@mixin btn($col, $bgcol, $border, $pTpBtm, $pLtRt, $bRadius, $fsize, $fweight){
+    color: $col;
+    background-color: $bgcol;
+    border: $border;
+    padding: $pTpBtm $pLtRt;
+    border-radius: $bRadius;
+    font-size: $fsize;
+    font-weight: $fweight;
+}
+
+.navDownload{
+    @include btn(variables.$col1 ,variables.$bgcol1, none, 14.5px , 42.5px ,4px ,19px, 500);
+}
+.shopNowHeroSec{
+    @include btn(variables.$col1 ,variables.$bgcol1, none, 17.5px , 42.5px ,8px ,19px, 500);
+}
+.collectionTitles{
+    a{
+        text-align: center;
+        max-width: 110px;
+        @include btn(variables.$col1 ,variables.$bgcol1, none, 12px , 20px ,8px ,15px, 500);
+    }
+}

@@ -1,0 +1,620 @@
+@use 'variables';
+@use 'All';
+@use 'button';
+
+//mixins
+@mixin dispFlex($mxWidth, $disp, $wrap, $dir, $jContent, $gp){
+    max-width: $mxWidth;
+    display: $disp;
+    flex-wrap: $wrap;
+    flex-direction: $dir;
+    justify-content: $jContent;
+    gap: $gp;
+}
+@mixin dispGrid($disp, $jcontent, $gap){
+    display: $disp;
+    justify-content: $jcontent;
+    gap: $gap;
+}
+@mixin borderFix($ht, $wt, $r,$bgc){
+    height: $ht;
+    width: $wt;
+    border-radius: $r;
+    background-color: $bgc;
+}
+
+//General classes
+.ellipse, .navDisp, .hero, .sunglasses, .happy-customers, .icons{
+    margin: 0px auto;
+}
+.head-line, .ellipse1, .discount{
+    text-align: center;
+}
+.head-line{
+    .title{
+        @include All.typo(#452228, 55px, 600px);
+    }
+    .subTitle{
+        max-width: 474px;
+        margin: auto;
+        @include All.typo(#797979, 16px, 400px);
+    }
+}
+.img570w{
+    @include borderFix(auto, 570px, 15px, transparent);
+}
+.margin-top-left{
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.discount{
+    @include borderFix(40px, 100px, 5px, #FD9B28 );
+    @include All.typo(#FFFFFF, 15px, 600);
+    padding-top: 10px;
+}
+.cir{
+    margin: 3px;
+    @include borderFix(12px, 12px, 50%, #836953);
+   
+}
+.ellipse{
+    @include dispFlex(80px, flex , wrap ,row ,variables.$btwn,10px );
+    .ellipse1{
+        @include borderFix(20px, 20px, 50%,none);
+        border: 1px solid #836953;
+    }
+    .ellipse2{
+        border: 1px solid #FF5845;
+        .cir{
+           background-color: #FF5845;
+        }
+    }
+    .ellipse3{
+        border: 1px solid #A970C8;
+        .cir{
+            background-color: #A970C8;
+        }
+    }
+    img{
+        position: relative;
+        top: -12%;
+    }
+}
+.price{
+    @include All.typo(#452228, 14px, 500);
+    span{
+        @include All.typo(#B6B6B6, 14px, 500);
+        text-decoration: line-through;
+    }
+}
+.bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+// navigation bar
+.navDisp{
+    @include dispFlex(1170px, flex, wrap, row, variables.$btwn, auto);
+    align-content: center;
+    .menuBar{
+        @include dispFlex(614px, flex, wrap, row, variables.$btwn, 30px);
+        align-items: center;
+        align-content: center;
+        .menuList{
+            @include dispFlex(550px, flex , wrap ,row ,variables.$btwn, 22px );
+            a{
+                color: #452228;
+            }
+        }
+        a{
+            color: variables.$col2;
+        }
+        .navDownload{
+            color: variables.$col1;
+        }
+    }
+}
+
+// Hero Section
+.herSection{
+    margin: 20px 0px;
+    width: 100%;
+    background-position:center;
+    .hero{
+        padding: 246px 0px;
+        .contents{
+            @include dispFlex(auto, flex ,wrap ,column ,center, 30px );
+            .subTitle{
+                @include All.typo(#78464F,15px,600 );
+                letter-spacing: 0.15em;
+            }
+            .title{
+                max-width: 764px;
+                @include All.typo(#FFFFFF,86px,700 );
+                line-height: 104px;
+            }
+            a{
+                max-width: 180px;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+
+// New Colllections
+.collections{
+    margin-top: 60px;
+    @include dispFlex(100%,flex ,wrap ,row ,center, 30px );
+    .collectionTitles{
+        @include dispFlex(auto,flex ,wrap ,column ,left, 25px );
+        @include All.position(absolute);
+        margin: 50px auto auto 300px;
+        .subTitle{
+            @include All.typo(#FFFFFFB2, 16px , 600 );
+        }
+        .title{
+            @include All.typo(#FFFFFF, 28px , 700 );
+        }
+    }
+}
+
+
+// New Arrival Sunglasses
+.newArrivalGlasses{
+    margin: 60px auto;
+    @include dispFlex(1170px, flex , wrap ,column ,center, 70px );
+    .head-line{
+        .title{
+            font-weight: 600;
+        }
+    }
+    .sunglasses{
+        @include dispGrid(grid, center,30px );
+        grid-template-columns: repeat(4, 1fr);
+        .sunglass{
+            @include dispFlex(270px, flex , wrap ,column ,center, 30px );
+            border: 1px;
+            border: 1px solid #FAE9E8;
+            padding-bottom: 20px;
+            .discount{
+                margin: 5px 5px auto 220px;
+                padding: 4px 6px;
+                @include borderFix(auto, 44px, 3px, #FF5845);
+                @include All.typo(#FFFFFF, 12px, 600px);
+            }
+            .glass{
+                width: 190px;
+            }
+            .glassContents{
+                @include dispGrid(grid,center ,30px );
+                .glassInfo{
+                    @include dispFlex(270, flex , wrap ,column ,center, 8px );
+                    display: grid;
+                    justify-content: center;
+                    .title{
+                        @include All.typo(#452228, 20px, 500);
+                    }
+                    .price{
+                        text-align: center;
+                        @include All.typo(#452228, 14px, 500);
+                        span{
+                            @include All.typo(#B6B6B6, 14px, 500);
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+                .icons{
+                    @include dispFlex(210px, flex , nowrap ,row ,center,13px );
+                    @include borderFix(56px, 210px, 8px, #FFF6F5);
+                    padding: 5px 0px;
+                    img{
+                        @include borderFix(42px, 42px, 50%, transparent);
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+}
+
+
+// Offer Collection
+.offer-collection{
+    margin: 70px auto;
+    @include dispGrid(grid, auto ,23px );
+    grid-template: repeat(2,1fr)/repeat(2,1fr);
+    .baby{
+        grid-area: span 2;
+        margin: auto;
+        .content{
+            position: absolute;
+            .title{
+               margin-top: 90%;
+               margin-left: 150px;
+               a{
+                    padding: 20px 46.5px;
+                    @include borderFix(80px, 297px, 12px, #FFFFFF );
+                    @include All.typo(#452228, 28px, 700);
+               }
+            }
+        }
+        
+    }
+    .ladies-gents{
+        margin: auto;
+        .content{
+            position: absolute;
+            display: grid;
+            gap: 22px;
+            .offerTime{
+                @include borderFix(80px, 206px, 0px, transparent );
+                @include All.typo(#FFFFFF, 33px, 700);
+            }
+            .title{
+                padding: 15px 27.5px;
+                @include borderFix(62px, 230px, 10px, #FFFFFF );
+                @include All.typo(#452228, 22px, 700);
+             }
+        }
+    }
+    
+}
+
+
+
+// Our Happy Customers
+.happy-customers{
+    @include dispGrid(grid, center, 60px);
+    .title{
+        font-weight: 600;
+    }
+    .customers{
+        @include dispFlex(auto, flex , wrap ,row ,space-between, 29px);
+        .customer{
+            max-width: 370px;
+            padding: 35px;
+            @include dispGrid(grid, left, 25px );
+            background-color: #FFF6F5;
+            border-radius: 10px;
+            .info{
+                display: flex;
+                gap: 30px;
+                img{
+                    @include borderFix(74px, 74px, 50%, transparent);
+                }
+                .name-resignation{
+                    padding: 10px 5px;
+                    .name{
+                        @include All.typo(#452228, 23px, 700);
+                    }
+                    .resignation{
+                        font-family: "Outfit";
+                        @include All.typo(#FF5845, 11px, 600);
+                        letter-spacing: 0.16em;
+                        &:hover {
+                            color: #FFFFFF;
+                         }
+                    }
+                }
+            }
+            .review{
+                @include All.typo(#797979, 17px, 400);
+            }
+        }
+    }
+}
+
+
+// Logo Section
+.logos{
+    width: 100%;
+    margin-top: 120px;
+    background-color: #FFF6F5;
+    .logo{
+        margin: 0px auto;
+        padding: 43.5px 0px;
+        @include dispGrid(grid, center, 60px);
+        grid-template: repeat(1, 1fr)/repeat(6,1fr);
+    }
+}
+
+
+
+// Top Rated Sunglasses
+.top-rated{
+    margin: 70px auto;
+    @include dispGrid(grid, auto, 50px);
+    .title{
+        font-weight: 700;
+    }
+    .content{
+        @include dispGrid(grid, center, 15px);
+        grid-template: repeat(4, 1fr)/repeat(3,1fr);
+        .sale{
+            max-width: 370px;
+            min-width: 350px;
+            grid-area: span 4;
+            .discount-info{
+                @include dispGrid(grid, center, 0px);
+                margin-top: 60%;
+                text-align: center;
+                .onwhich, .txt{
+                    @include All.typo(#FFFFFF, 20px, 700);
+                }
+                .percent{
+                    @include All.typo(#FFFFFF, 80px, 700);
+                }
+                a{
+                    margin-top: 20px;
+                    @include button.btn(#452228, #FFFFFF, none, 17px, 23px, 8px, 18px, 500);
+                }
+            }
+        }
+        .glasss{
+            max-width: 370px;
+            display: flex;
+            gap: 30px;
+            padding: 22px 10px 22px 22px;
+            border: 1px solid #FAE9E8;
+            .image{
+                @include dispGrid(grid, center, 0px);
+                .glassimg{
+                    width: 91px;
+                }
+            }
+            .info{
+                @include dispGrid(grid, center, 6px);
+                img{
+                    height: 13px;
+                }
+                .title{
+                    @include All.typo(#452228, 20px, 500);
+                }
+                .price{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+//responseive section
+
+@media(max-width: 1400px){
+    .mx-w{
+        max-width: 1070px;
+    }
+    .herSection{
+        .hero{
+            padding: 190px 0px;
+        }
+    }
+}
+@media(max-width: 1200px){
+    .mx-w{
+        max-width: 890px;
+    }
+    .herSection{
+        .hero{
+            padding: 180px 0px;
+            .contents{
+                gap: 20px;
+                .title{
+                    max-width: 520px;
+                    font-size: 65px;
+                }
+            }    
+        }
+    }
+    .offer-collection{
+        max-width: 580px;
+        grid-template: repeat(4,1fr)/repeat(1,1fr);
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+    .logos{
+        .logo{
+            grid-template: repeat(2, 1fr)/repeat(3,1fr);
+            img{
+                margin: 0px auto;
+            }
+        }
+    }
+    .top-rated{
+        .content{
+            grid-template: 4fr/2fr repeat(4, 1fr)/repeat(2, 1fr);
+            .sale{
+                .discount-info{
+                    margin-top: 110%;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 992px){
+    .mx-w{
+        max-width: 720px;
+    }
+    .navDisp{
+        justify-content: center;
+    }
+    .herSection{
+        .hero{
+            padding: 110px 0px; 
+        }
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .happy-customers{
+        .customers{
+            .customer{
+                margin: auto;
+            }
+        }
+    }
+    .top-rated{
+        .content{
+            grid-template: repeat(8, 1fr)/repeat(1, 1fr);
+            .sale{
+                grid-area: span 4;
+                margin: auto;
+                height: 570px;
+                border-radius: 8px;
+                .discount-info{
+                    margin-top: 90%;
+                    .onwhich, .txt{
+                        font-size: 16px;
+                    }
+                    .percent{
+                        font-size: 45px;
+                    }
+                }
+            }
+            .glasss{
+                margin: auto;
+                width: 350px;
+            }
+        }
+    }
+}
+@media(max-width: 768px){
+    .mx-w{
+        max-width: 560px;
+    }
+    .herSection{
+        .hero{
+            padding: 80px 0px;
+            .contents{
+                gap: 10px;
+                .subTitle{
+                    font-size: 12px;
+                }
+                .title{
+                    max-width: 200px;
+                    font-size: 33px;
+                    line-height: 50px;
+                }
+                a{
+                    max-width: 150px;
+                    margin-top: 10px;
+                    padding: 10px 25px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .offer-collection{
+        grid-template: repeat(4,1fr)/repeat(1,1fr);
+        gap: 30px;
+        .baby{
+            .content{
+                .title{
+                   margin-left: 75px;
+                   a{
+                        padding: 15px 30px;
+                        @include borderFix(80px, 297px, 12px, #FFFFFF );
+                        font-size: 20px;
+                   }
+                }
+            }
+            
+        }
+        .ladies-gents{
+            .content{
+                gap: 15px;
+                .offerTime{
+                    @include borderFix(30px, 100px, 0px, transparent );
+                    @include All.typo(#FFFFFF, 18px, 700);
+                }
+                .title{
+                    padding: 7px 20px;
+                    margin-top: 20px;
+                    @include borderFix(40px, 192px, 5px, #FFFFFF );
+                    @include All.typo(#452228, 19px, 700);
+                 }
+            }
+        }
+    }
+    .img570w{
+        width: 350px;
+    }
+    .discount{
+        @include borderFix(26px, 70px, 5px, #FD9B28 );
+        font-size: 12px;
+        padding: 5px 0px;
+    }
+    .margin-top-left{
+        margin-top: 14px;
+        margin-left: 14px;
+    }
+}
+
+@media(max-width: 590px){
+    .mx-w{
+        max-width: 358px;
+    }
+    .herSection{
+        .hero{
+            padding: 40px 0px;
+        }
+    }
+    .img552hgt280{
+        max-width: 350px;
+    }
+    .head-line{
+        .title{
+            font-size: 35px;
+        }
+    }
+    .navDisp{
+        .menuBar{
+            justify-content: center;
+        }
+    }
+    .collections{
+        .collectionTitles{
+            gap: 16px;
+            margin: 25px auto auto 185px;
+            .subTitle{
+                @include All.typo(#FFFFFFB2, 14px , 600 );
+            }
+            .title{
+                @include All.typo(#FFFFFF, 20px , 700 );
+            }
+        }
+    }
+    .newArrivalGlasses{
+        .sunglasses{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .happy-customers{
+        .customers{
+            .customer{
+                max-width: 350px;
+                padding: 25px;
+            }
+        }
+    }
+    .logos{
+        .logo{
+            grid-template: repeat(3, 1fr)/repeat(2,1fr);
+        }
+    }
+}
